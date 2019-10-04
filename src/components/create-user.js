@@ -5,18 +5,18 @@ export default class CreateUser extends Component {
     constructor(props) {
         super(props) 
 
-        this.onChangeUser = this.onChangeUser.bind(this)
+        this.onChangeUsername = this.onChangeUsername.bind(this)
     
         this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
-          user: ""
+          username: ""
         }
     }
 
-    onChangeUser(e) {
+    onChangeUsername(e) {
         this.setState({
-            user: e.target.value
+            username: e.target.value
         })
     }
 
@@ -24,11 +24,14 @@ export default class CreateUser extends Component {
         e.preventDefault()
 
         const user = {
-            user: this.state.user
+            username: this.state.username
         }
         console.log(user)
+
+        axios.post('http://localhost:5000/users/add', user).then(res => console.log(res.data))
+
         this.setState({
-            user: ''
+            username: ''
         })
     }
     render() {
@@ -41,15 +44,15 @@ export default class CreateUser extends Component {
                   type="text"
                   required
                   className="form-control"
-                  value={this.state.user}
-                  onChange={this.onChangeUser}
+                  value={this.state.username}
+                  onChange={this.onChangeUsername}
                 />
               </div>
               <div className="form-group">
                 <input
                   type="submit"
                   value="Create User"
-                  className="btn btn-primary"
+                  className="btn"
                 />
               </div>
             </form>

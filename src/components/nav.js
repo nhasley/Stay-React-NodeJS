@@ -6,7 +6,7 @@ export default class Nav extends Component {
         return (
           <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
             <Link to="/" className="navbar-brand">
-              Stay
+              STAY
             </Link>
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav mr-auto">
@@ -22,7 +22,7 @@ export default class Nav extends Component {
                 </li>
                 <li className="nav-item">
                   <Link to="/user" className="nav-link ">
-                    Create User
+                    Sign Up
                   </Link>
                 </li>
               </ul>

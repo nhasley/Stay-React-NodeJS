@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class CreateHouse extends Component {
     constructor(props) {
@@ -8,7 +9,7 @@ export default class CreateHouse extends Component {
         this.onChangeDescription = this.onChangeDescription.bind(this)
         this.onChangeGuests = this.onChangeGuests.bind(this)
         this.onChangePrice = this.onChangePrice.bind(this)
-        this.onChangeUser = this.onChangeUser.bind(this)
+        this.onChangeUsername = this.onChangeUsername.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
@@ -16,15 +17,19 @@ export default class CreateHouse extends Component {
           description: "",
           guests: 0,
           pricing: 0,
-          user: "",
+          username: "",
           users: []
         }
     }
 
     componentDidMount() {
-        this.setState({
-            users: ['test user'],
-            user: 'test user'
+        axios.get('http://localhost:5000/users/').then(response => {
+            if (response.data.length > 0) {
+                this.setState({
+                    users: response.data.map(user => user.username),
+                    username: response.data[0].username
+                })
+            }
         })
     }
 
@@ -48,9 +53,9 @@ export default class CreateHouse extends Component {
             pricing: e.target.value
         })
     }
-    onChangeUser(e) {
+    onChangeUsername(e) {
         this.setState({
-            user: e.target.value
+            username: e.target.value
         })
     }
 
@@ -62,9 +67,12 @@ export default class CreateHouse extends Component {
             description: this.state.description,
             guests: this.state.guests,
             pricing: this.state.pricing,
-            user: this.state.user
+            username: this.state.username
         }
         console.log(house)
+
+        axios.post('http://localhost:5000/house/add', house).then(res => console.log(res.data))
+
         window.location = '/'
     }
                         
@@ -118,8 +126,8 @@ export default class CreateHouse extends Component {
                   ref="userInput"
                   required
                   className="form-control"
-                  value={this.state.user}
-                  onChange={this.onChangeUser}
+                  value={this.state.username}
+                  onChange={this.onChangeUsername}
                 >
                   {this.state.users.map(function(user) {
                     return (
@@ -134,7 +142,7 @@ export default class CreateHouse extends Component {
                 <input
                   type="submit"
                   value="Create Listing"
-                  className="btn btn-primary"
+                  className="btn"
                 />
               </div>
             </form>
