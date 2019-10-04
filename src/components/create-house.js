@@ -2,88 +2,91 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 export default class CreateHouse extends Component {
-    constructor(props) {
-        super(props) 
+  constructor(props) {
+    super(props)
 
-        this.onChangeTitle = this.onChangeTitle.bind(this)
-        this.onChangeDescription = this.onChangeDescription.bind(this)
-        this.onChangeGuests = this.onChangeGuests.bind(this)
-        this.onChangePrice = this.onChangePrice.bind(this)
-        this.onChangeUsername = this.onChangeUsername.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
+    this.onChangeTitle = this.onChangeTitle.bind(this)
+    this.onChangeDescription = this.onChangeDescription.bind(this)
+    this.onChangeGuests = this.onChangeGuests.bind(this)
+    this.onChangePrice = this.onChangePrice.bind(this)
+    this.onChangeUsername = this.onChangeUsername.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
 
-        this.state = {
-          title: "",
-          description: "",
-          guests: 0,
-          pricing: 0,
-          username: "",
-          users: []
+    this.state = {
+        title: "",
+        description: "",
+        guests: 0,
+        pricing: 0,
+        username: "",
+        users: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:5000/users/').then(response => {
+        if (response.data.length > 0) {
+          this.setState({
+            users: response.data.map(user => user.username),
+            username: response.data[0].username
+          })
         }
-    }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
 
-    componentDidMount() {
-        axios.get('http://localhost:5000/users/').then(response => {
-            if (response.data.length > 0) {
-                this.setState({
-                    users: response.data.map(user => user.username),
-                    username: response.data[0].username
-                })
-            }
-        })
-    }
+  onChangeTitle(e) {
+    this.setState({
+        title: e.target.value
+    })
+}
+  onChangeDescription(e) {
+    this.setState({
+      description: e.target.value
+    })
+  }
+  onChangeGuests(e) {
+    this.setState({
+        guests: e.target.value
+    })
+}
+onChangePrice(e) {
+    this.setState({
+        pricing: e.target.value
+    })
+}
+onChangeUsername(e) {
+    this.setState({
+        username: e.target.value
+    })
+}
 
-    onChangeTitle(e) {
-        this.setState({
-            title: e.target.value
-        })
-    }
-    onChangeDescription(e) {
-        this.setState({
-            description: e.target.value
-        })
-    }
-    onChangeGuests(e) {
-        this.setState({
-            guests: e.target.value
-        })
-    }
-    onChangePrice(e) {
-        this.setState({
-            pricing: e.target.value
-        })
-    }
-    onChangeUsername(e) {
-        this.setState({
-            username: e.target.value
-        })
-    }
+  onSubmit(e) {
+    e.preventDefault()
 
-    onSubmit(e) {
-        e.preventDefault()
-
-        const house = {
-            title: this.state.title,
-            description: this.state.description,
-            guests: this.state.guests,
-            pricing: this.state.pricing,
-            username: this.state.username
-        }
-        console.log(house)
-
-        axios.post('http://localhost:5000/house/add', house).then(res => console.log(res.data))
-
-        window.location = '/'
+    const house = {
+        title: this.state.title,
+        description: this.state.description,
+        guests: this.state.guests,
+        pricing: this.state.pricing,
+        username: this.state.username
     }
-                        
+    console.log(house)
 
-    render() {
-        return (
-          <div>
-            <h3>Create Listing</h3>
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <label>Title: </label>
+    axios.post('http://localhost:5000/houses/add', house).then(res => console.log(res.data))
+
+    window.location = '/'
+  }
+
+
+  render() {
+    return (
+    <div>
+      <h3>Create Listing</h3>
+      <form onSubmit={this.onSubmit}>
+        <div className="form-group"> 
+        <label>Title: </label>
                 <input
                   type="text"
                   required
