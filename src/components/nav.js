@@ -22,9 +22,9 @@ class Nav extends Component {
     );
 
     const userLink = (
-      <div>
+      <div className="right">
         <li>
-              <Link to="/">
+              <Link to="/listings">
                 Listings
               </Link>
             </li>
@@ -34,10 +34,10 @@ class Nav extends Component {
               </Link>
             </li>
         <li>
-          <Link to="/profile">User</Link>
+          <Link to="/profile">Profile</Link>
         </li>
         <li>
-          <a href="" onClick={this.logOut.bind(this)}>
+          <a href="/" onClick={this.logOut.bind(this)}>
             Logout
           </a>
         </li>

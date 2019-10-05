@@ -9,7 +9,6 @@ export default class CreateHouse extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this)
     this.onChangeGuests = this.onChangeGuests.bind(this)
     this.onChangePrice = this.onChangePrice.bind(this)
-    this.onChangeUsername = this.onChangeUsername.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
 
     this.state = {
@@ -23,7 +22,7 @@ export default class CreateHouse extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/').then(response => {
+    axios.get('http://localhost:3001/users/').then(response => {
         if (response.data.length > 0) {
           this.setState({
             users: response.data.map(user => user.username),
@@ -56,11 +55,6 @@ onChangePrice(e) {
         pricing: e.target.value
     })
 }
-onChangeUsername(e) {
-    this.setState({
-        username: e.target.value
-    })
-}
 
   onSubmit(e) {
     e.preventDefault()
@@ -74,7 +68,7 @@ onChangeUsername(e) {
     }
     console.log(house)
 
-    axios.post('http://localhost:5000/houses/add', house).then(res => console.log(res.data))
+    axios.post('http://localhost:3001/houses/add', house).then(res => console.log(res.data))
 
     window.location = '/'
   }
@@ -122,24 +116,6 @@ onChangeUsername(e) {
                   value={this.state.pricing}
                   onChange={this.onChangePrice}
                 />
-              </div>
-              <div className="form-group">
-                <label>Username: </label>
-                <select
-                  ref="userInput"
-                  required
-                  className="form-control"
-                  value={this.state.username}
-                  onChange={this.onChangeUsername}
-                >
-                  {this.state.users.map(function(user) {
-                    return (
-                      <option key={user} value={user}>
-                        {user}
-                      </option>
-                    );
-                  })}
-                </select>
               </div>
               <div className="form-group">
                 <input

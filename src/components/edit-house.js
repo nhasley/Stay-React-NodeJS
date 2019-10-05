@@ -22,7 +22,7 @@ export default class EditHouse extends Component {
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/houses/'+this.props.match.params.id).then(response => {
+        axios.get('http://localhost:3001/houses/'+this.props.match.params.id).then(response => {
             this.setState({
               title: response.data.title,
               description: response.data.description,
@@ -34,7 +34,7 @@ export default class EditHouse extends Component {
             console.log(error)
         })
 
-        axios.get('http://localhost:5000/users/').then(response => {
+        axios.get('http://localhost:3001/users/').then(response => {
             if (response.data.length > 0) {
                 this.setState({
                     users: response.data.map(user => user.username),

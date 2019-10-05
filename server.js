@@ -4,9 +4,15 @@ var bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 require('dotenv').config()
+const uri = process.env.ATLAS_URI
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+const connection = mongoose.connection
+connection.on('connected', () => {
+    console.log('MongoDB database connection established successfully')
+})
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3001
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -14,12 +20,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }))
 
-const uri = process.env.ATLAS_URI
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
-const connection = mongoose.connection
-connection.once('open', () => {
-    console.log('MongoDB database connection established successfully')
-})
 
 const housesRouter = require('./routes/houses')
 const usersRouter = require('./routes/users')

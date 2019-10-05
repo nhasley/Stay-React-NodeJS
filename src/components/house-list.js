@@ -8,7 +8,7 @@ const House = props => (
       <td>{props.house.description}</td>
       <td>{props.house.guests}</td>
       <td>{props.house.pricing}</td>
-      <td>{props.house.username}</td>
+    
       <td>
         <Link to={"/edit/"+props.house._id}>edit</Link> | <a href="#" onClick={() => { props.deleteHouse(props.house._id) }}>delete</a>
       </td>
@@ -61,7 +61,7 @@ const House = props => (
                 <th>Description</th>
                 <th>Guests</th>
                 <th>Price</th>
-                <th>Username</th>
+            
                 <th>Actions</th>
               </tr>
             </thead>
