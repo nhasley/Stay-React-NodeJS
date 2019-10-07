@@ -43,11 +43,11 @@ router.route("/:id").get((req,res) => {
   })
 })
 
-// router.route("/:id").delete((req, res) => {
-//   House.findByIdAndDelete(req.params.id)
-//     .then(() => res.json("Listing deleted."))
-//     .catch(err => res.status(400).json("Error: " + err));
-// });
+router.route("/:id").delete((req, res) => {
+  House.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Listing deleted."))
+    .catch(err => res.status(400).json("Error: " + err));
+});
 
 router.route("/update/:id").post((req, res) => {
   House.findById(req.params.id)
