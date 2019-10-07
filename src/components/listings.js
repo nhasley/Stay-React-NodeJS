@@ -14,7 +14,7 @@ const House = props => (
             {props.house.guests}
         </td>
         <td>
-            {props.house.pricing}
+            ${props.house.pricing}
         </td>
         <td>
             <Link to={`/edit/${props.house._id}`}>Edit</Link>  | <a href="#" onClick={() => { props.deleteHouse(props.house._id) }}>Delete</a>
