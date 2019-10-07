@@ -30,14 +30,14 @@ export default class Listings extends Component {
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:3001/houses/').then(res => {
+        axios.get('http://localhost:3001/listings/').then(res => {
             this.setState({houses: res.data})
         }).catch((err) => {
             console.log(err)
         })
     }
     componentDidUpdate() {
-        axios.get('http://localhost:3001/houses/').then(res => {
+        axios.get('http://localhost:3001/listings/').then(res => {
             this.setState({houses: res.data})
         }).catch((err) => {
             console.log(err)

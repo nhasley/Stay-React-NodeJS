@@ -54,7 +54,7 @@ export default class CreateListing extends Component {
                        pricing: this.state.pricing
                    }
 
-                   axios.post('http://localhost:3001/houses/add', newHouse).then(res => (res.data))
+                   axios.post('http://localhost:3001/listings/add', newHouse).then(res => (res.data))
 
                    this.setState({
                      title: "",

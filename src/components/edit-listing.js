@@ -21,7 +21,7 @@ export default class EditListing extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/houses/'+this.props.match.params.id)
+        axios.get('http://localhost:3001/listings/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     title: response.data.title,
@@ -64,7 +64,7 @@ export default class EditListing extends Component {
             guests: this.state.guests,
             pricing: this.state.pricing
         }
-        axios.post(`http://localhost:3001/houses/update/${this.props.match.params.id}`, obj).then(res => console.log(res.data))
+        axios.post(`http://localhost:3001/listings/update/${this.props.match.params.id}`, obj).then(res => console.log(res.data))
 
         this.props.history.push('/listings')
     }

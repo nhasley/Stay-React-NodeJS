@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 const housesRouter = require('./routes/houses')
 const usersRouter = require('./routes/users')
 
-app.use('/houses', housesRouter)
+app.use('/listings', housesRouter)
 app.use('/users', usersRouter)
 
 app.listen(port, () => {
