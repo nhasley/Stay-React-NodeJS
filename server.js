@@ -8,7 +8,7 @@ const uri = process.env.ATLAS_URI
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
 const connection = mongoose.connection
 connection.on('connected', () => {
-    console.log('MongoDB database connection established successfully')
+    console.log(`MongoDB database connection established successfully on ${connection.host} at ${connection.port}`)
 })
 
 const app = express()

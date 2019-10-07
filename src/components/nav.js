@@ -11,7 +11,6 @@ class Nav extends Component {
   render() {
     const loginRegLink = (
       <div className="right">
-        
         <li>
           <Link to="/login">Login</Link>
         </li>
