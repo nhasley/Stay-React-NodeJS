@@ -65,7 +65,7 @@ export default class CreateListing extends Component {
                  }
                  render() {
                    return (
-                     <div style={{ marginTop: 20 }}>
+                     <div className="listform" style={{ marginTop: 20 }}>
                        <h3>Add Listing</h3>
                        <form onSubmit={this.onSubmit}>
                          <div className="form-group">

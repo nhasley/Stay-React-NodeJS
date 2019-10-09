@@ -1,29 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 // import jwt_decode from 'jwt-decode'
 
-class Profile extends Component {
-  constructor() {
-    super()
-    this.state = {
-      first_name: '',
-      last_name: '',
-      email: '',
-      errors: {}
-    }
-  }
-
-//   componentDidMount() {
-//     const token = localStorage.usertoken
-//     const decoded = jwt_decode(token)
-//     this.setState({
-//       first_name: decoded.first_name,
-//       last_name: decoded.last_name,
-//       email: decoded.email
-//     })
-//   }
-
-  render() {
-    return (
+const Profile = props => {
+  return (
       <div className="container">
         <div className="jumbotron mt-5">
           <div className="col-sm-8 mx-auto">
@@ -33,22 +12,17 @@ class Profile extends Component {
             <tbody>
               <tr>
                 <td>Fist Name</td>
-                <td>{this.state.first_name}</td>
-              </tr>
-              <tr>
-                <td>Last Name</td>
-                <td>{this.state.last_name}</td>
+                <td>{props.user.name}</td>
               </tr>
               <tr>
                 <td>Email</td>
-                <td>{this.state.email}</td>
+                <td>{props.user.email}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     )
-  }
 }
 
 export default Profile

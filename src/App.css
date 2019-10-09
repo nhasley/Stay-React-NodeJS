@@ -9,19 +9,19 @@ body {
    position: absolute;
 }
 .main{
-    /* margin: 30px 90px 90px 30px; */
     display: flex;
-    padding-top: 150px;
+    padding-top: 100px;
     justify-content: center;
     align-content: center;
-    /* text-align: center; */
+
 }
-/* .main .center{
-    margin: 30px 90px 90px 30px;
-} */
+.listform {
+    margin: 0px 50px 30px 50px;
+    padding: 0px;
+ 
+}
 .form{
     width: 400px;
-    /* margin: 0 auto; */
     padding: 30px;
     background-color: whitesmoke;
     box-shadow: 10px 10px 50px grey;
