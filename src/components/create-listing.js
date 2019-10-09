@@ -107,7 +107,7 @@ export default class CreateListing extends Component {
                          <div className="form-group">
                            <input
                              type="submit"
-                             value="Create Todo"
+                             value="Create Listing"
                              className="btn"
                            />
                          </div>

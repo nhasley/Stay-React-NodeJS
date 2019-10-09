@@ -1,5 +1,24 @@
+body {
+    background-color: white;
+}
 .main{
-    margin: 50px 90px 90px 90px;
+    /* margin: 30px 90px 90px 30px; */
+    display: flex;
+    padding-top: 150px;
+    justify-content: center;
+    align-content: center;
+    /* text-align: center; */
+}
+/* .main .center{
+    margin: 30px 90px 90px 30px;
+} */
+.form{
+    width: 400px;
+    /* margin: 0 auto; */
+    padding: 30px;
+    background-color: whitesmoke;
+    box-shadow: 10px 10px 50px grey;
+    border-radius: 5%;
 }
 
 h3{
@@ -13,29 +32,33 @@ input.form-control {
 .btn {
     display:inline-block;
     padding:0.35em 1.2em;
-    border:0.1em solid lightgrey;
     margin:0 0.3em 0.3em 0;
     border-radius:0.5em;
     box-sizing: border-box;
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
-    color: #000000;
+    color: white;
+    background-color: #333;
     text-align:center;
     transition: all 0.2s;
+    
 }
 
 .btn:hover{
     color:#000000;
-    background-color:lightgrey;
+    background-color: rgb(252,226,5);
+    cursor: pointer;
 }
 
 ul {
     list-style-type: none;
+    position: fixed;
+    width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgba(255, 255, 255, 0.841);
   }
   
   li {
@@ -44,7 +67,7 @@ ul {
   
   li a {
     display: block;
-    color: white;
+    color: Black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;

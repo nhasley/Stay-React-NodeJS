@@ -90,7 +90,7 @@ export default class EditListing extends Component {
                         <input type="number" className='form-control' value={this.state.pricing} onChange={this.onChangePricing}/>
                     </div>
                     <div className='form-group'>
-                        <input type='submit' value='Update Listing' className="btn btn-primary"/>
+                        <input type='submit' value='Update Listing' className="btn"/>
                     </div>
                 </form>
             </div>

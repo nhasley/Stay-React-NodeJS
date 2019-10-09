@@ -17,7 +17,7 @@ const House = props => (
             ${props.house.pricing}
         </td>
         <td>
-            <Link to={`/edit/${props.house._id}`}>Edit</Link>  | <a href="#" onClick={() => { props.deleteHouse(props.house._id) }}>Delete</a>
+            <Link to={`/edit/${props.house._id}`}>Edit</Link>  | <Link  onClick={() => { props.deleteHouse(props.house._id) }}>Delete</Link>
         </td>
     </tr>
 )
