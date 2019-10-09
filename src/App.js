@@ -51,7 +51,7 @@ export default class App extends Component {
          
           <br />
           <div className="main">
-          <Route exact path="/" component={HomePage} user={this.state.user}/>
+          <Route exact path="/" render={() => (<HomePage user={this.state.user}/>)} />
             <Route
               exact
               path="/signup"

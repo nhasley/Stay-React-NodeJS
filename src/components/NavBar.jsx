@@ -37,7 +37,7 @@ const NavBar = (props) => {
       <nav>
         <div>
           <ul>
-            <li>
+            <li className="logo">
               <Link to="/">STAY</Link>
             </li>
             {nav}
