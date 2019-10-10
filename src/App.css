@@ -21,8 +21,6 @@ body {
  
 }
 div.jumbotron.mt-5{
-    /* border: 2px solid black;
-    padding: 100px */
     box-shadow: 10px 15px 20px rgba(78, 77, 77, 0.263);
 }
 .form{
