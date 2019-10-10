@@ -16,8 +16,8 @@ export default class CreateListing extends Component {
                    this.state = {
                      title: "",
                      description: "",
-                     guests: 0,
-                     pricing: 0,
+                     guests: "",
+                     pricing: "",
                    };
                  }
 
@@ -59,8 +59,8 @@ export default class CreateListing extends Component {
                    this.setState({
                      title: "",
                      description: "",
-                     guests: 0,
-                     pricing: 0
+                     guests: "",
+                     pricing: ""
                    });
                  }
                  render() {
