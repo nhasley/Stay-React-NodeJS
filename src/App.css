@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(252,226,5);
+    background-color: rgb(252, 227, 5);
 }
 .logo {
    font-weight:800;
@@ -14,6 +14,9 @@ body {
     justify-content: center;
     align-content: center;
 
+}
+img {
+    object-fit: cover;
 }
 .listform {
     margin: 0px 50px 30px 50px;

@@ -5,6 +5,7 @@ export default class CreateListing extends Component {
                  constructor(props) {
                    super(props);
 
+                   this.onChangePhoto = this.onChangePhoto.bind(this);
                    this.onChangeTitle = this.onChangeTitle.bind(this);
                    this.onChangeDescription = this.onChangeDescription.bind(
                      this
@@ -14,6 +15,7 @@ export default class CreateListing extends Component {
                    this.onSubmit = this.onSubmit.bind(this);
 
                    this.state = {
+                     photo: "",
                      title: "",
                      description: "",
                      guests: "",
@@ -21,6 +23,11 @@ export default class CreateListing extends Component {
                    };
                  }
 
+                 onChangePhoto(e) {
+                   this.setState({
+                     photo: e.target.value
+                   });
+                 }
                  onChangeTitle(e) {
                    this.setState({
                      title: e.target.value
@@ -48,6 +55,7 @@ export default class CreateListing extends Component {
                    e.preventDefault();
 
                    const newHouse = {
+                       photo: this.state.photo,
                        title: this.state.title,
                        description: this.state.description,
                        guests: this.state.guests,
@@ -57,6 +65,7 @@ export default class CreateListing extends Component {
                    axios.post('http://localhost:3001/listings/add', newHouse).then(res => (res.data))
 
                    this.setState({
+                     photo: "",
                      title: "",
                      description: "",
                      guests: "",
@@ -68,6 +77,15 @@ export default class CreateListing extends Component {
                      <div className="listform" style={{ marginTop: 20 }}>
                        <h3>Add Listing</h3>
                        <form onSubmit={this.onSubmit}>
+                         <div className="form-group">
+                           <label>Photo: </label>
+                           <input
+                             type="text"
+                             className="form-control"
+                             value={this.state.photo}
+                             onChange={this.onChangePhoto}
+                           />
+                         </div>
                          <div className="form-group">
                            <label>Title: </label>
                            <input

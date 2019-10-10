@@ -3,24 +3,26 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 const House = props => (
-    <tr>
-        <td>
-            {props.house.title}
-        </td>
-        <td>
-            {props.house.description}
-        </td>
-        <td>
-            {props.house.guests}
-        </td>
-        <td>
-            ${props.house.pricing}
-        </td>
-        <td>
-            <Link to={`/edit/${props.house._id}`}>Edit</Link>  | <Link  onClick={() => { props.deleteHouse(props.house._id) }}>Delete</Link>
-        </td>
-    </tr>
-)
+  <tr>
+    <td>
+      <img src="/images/house.jpg" alt="house" width="120" height="120" />
+    </td>
+    <td>{props.house.title}</td>
+    <td>{props.house.description}</td>
+    <td>{props.house.guests}</td>
+    <td>${props.house.pricing}</td>
+    <td>
+      <Link to={`/edit/${props.house._id}`}>Edit</Link> |{" "}
+      <Link
+        onClick={() => {
+          props.deleteHouse(props.house._id);
+        }}
+      >
+        Delete
+      </Link>
+    </td>
+  </tr>
+);
 
 export default class Listings extends Component {
     constructor(props) {
@@ -64,17 +66,19 @@ export default class Listings extends Component {
             return <House house={currenthouse} deleteHouse={this.deleteHouse} key={currenthouse._id}/>
         })
     }
-    render() {
+    render(props) {
         return (
             <div>
                 <h3>Listings</h3>
                 <table className="table table-striped" style={{marginTop: 20}}>
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Title</th>
                             <th>Description</th>
                             <th>Guests</th>
                             <th>Pricing</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

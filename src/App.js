@@ -74,9 +74,9 @@ export default class App extends Component {
             />
             <Route exact path="/profile" render={() => (<Profile user={this.state.user}/>)} />
             <Route exact path="/listings" component={Listings} />
-            <Route exact path="/edit/:id" component={EditListing} />
           </div>
           <div className="listform">
+            <Route exact path="/edit/:id" component={EditListing} />
             <Route exact path="/create" component={CreateListing} />
           </div>
         </Router>

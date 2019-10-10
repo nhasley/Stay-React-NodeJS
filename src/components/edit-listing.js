@@ -6,6 +6,7 @@ export default class EditListing extends Component {
     constructor(props){
         super(props)
 
+        this.onChangePhoto = this.onChangePhoto.bind(this)
         this.onChangeTitle = this.onChangeTitle.bind(this)
         this.onChangeDescription = this.onChangeDescription.bind(this)
         this.onChangeGuests = this.onChangeGuests.bind(this)
@@ -13,6 +14,7 @@ export default class EditListing extends Component {
         this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
+            photo: '',
             title: '',
             description: '',
             guests: '',
@@ -24,6 +26,7 @@ export default class EditListing extends Component {
         axios.get('http://localhost:3001/listings/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
+                    photo: response.data.photo,
                     title: response.data.title,
                     description: response.data.description,
                     guests: response.data.guests,
@@ -35,6 +38,11 @@ export default class EditListing extends Component {
             })
     }
 
+    onChangePhoto(e) {
+        this.setState({
+            photo: e.target.value
+        })
+    }
     onChangeTitle(e) {
         this.setState({
             title: e.target.value
@@ -59,6 +67,7 @@ export default class EditListing extends Component {
     onSubmit(e) {
         e.preventDefault()
         const obj = {
+            photo: this.state.photo,
             title: this.state.title,
             description: this.state.description,
             guests: this.state.guests,
@@ -72,7 +81,11 @@ export default class EditListing extends Component {
         return (
             <div>
                 <h3>Edit Listing</h3>
-                <form onSubmit={this.onSubmit}>
+                <form className="listform" onSubmit={this.onSubmit}>
+                    <div className='form-group'>
+                        <label>Photo: </label>
+                        <input type="text" className='form-control' value={this.state.photo} onChange={this.onChangePhoto}/>
+                    </div>
                     <div className='form-group'>
                         <label>Title: </label>
                         <input type="text" className='form-control' value={this.state.title} onChange={this.onChangeTitle}/>

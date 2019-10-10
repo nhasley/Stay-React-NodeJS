@@ -16,27 +16,6 @@ router.route('/add').post((req, res) => {
   } )
 })
 
-// router.route("/add").post((req, res) => {
-//   const title = req.body.title;
-//   const description = req.body.description;
-//   const guests = req.body.guests;
-//   const pricing = req.body.pricing;
-//   const user = req.body.user;
-
-//   const newHouse = new House({
-//     title,
-//     description,
-//     guests,
-//     pricing,
-//     user
-//   });
-
-//   newHouse
-//     .save()
-//     .then(() => res.json("Listing added!"))
-//     .catch(err => res.statusMessage(400).json("Error: " + err));
-// });
-
 router.route("/:id").get((req,res) => {
   House.findById(req.params.id, (err, house) => {
     res.json(house)
@@ -52,6 +31,7 @@ router.route("/:id").delete((req, res) => {
 router.route("/update/:id").post((req, res) => {
   House.findById(req.params.id)
     .then(house => {
+      house.photo = req.body.photo;
       house.title = req.body.title;
       house.description = req.body.description;
       house.guests = Number(req.body.guests);
