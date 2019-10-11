@@ -22,7 +22,9 @@ img {
 }
 .listform {
     margin: 0px 50px 30px 50px;
-    padding: 0px;
+    padding: 10px;
+    border-radius: 3%;
+    background-color: rgba(255, 255, 255, 0.9);
  
 }
 div.jumbotron.mt-5{
@@ -42,6 +44,7 @@ h3{
 
 input.form-control {
     border: 1px solid lightgrey;
+    background: rgba(84, 163, 212, 0.262);
 }
 
 .btn {
@@ -100,4 +103,8 @@ ul {
 
   .right {
       float: right;
+  }
+
+  table{
+      background-color: rgba(255, 255, 255, 0.9);
   }
