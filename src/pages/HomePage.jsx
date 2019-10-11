@@ -2,10 +2,12 @@ import React from "react";
 // import NavBar from "../components/NavBar";
 
 const HomePage = props => {
+  let welcome = props.user ?
+  <h1>Wilkommen, {props.user.name}!</h1> :
+  <h1>Wilkommen</h1>
   return (
     <div>
-      {/* <NavBar user={props.user} handleLogout={props.handleLogout} /> */}
-      <h1>Wilkommen, {props.user.name}!</h1>
+      {welcome}
     </div>
   );
 };
