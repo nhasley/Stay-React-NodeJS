@@ -56,11 +56,6 @@ export default class Listings extends Component {
           houses: this.state.houses.filter(el => el._id !== id)
         })
       }
-    // houseList(){
-    //     return this.state.houses.map((currentHouse, i) => {
-    //         return <House house={currentHouse} deleteHouse={this.deleteHouse} key={i} />
-    //     })
-    // }
     houseList(){
         return this.state.houses.map(currenthouse => {
             return <House house={currenthouse} deleteHouse={this.deleteHouse} key={currenthouse._id}/>
