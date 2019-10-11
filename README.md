@@ -1,7 +1,7 @@
 # Stay
 
 
-![Nova Hasley Stay Website](https://i.imgur.com/yWlo6NU.png)
+![Nova Hasley Stay Website](https://i.imgur.com/cDH2Ecs.png)
 
 ## About:
 A house rental website
